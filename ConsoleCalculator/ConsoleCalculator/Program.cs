@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using CalculatorLibrary;
 
 namespace ConsoleCalculator;
 
@@ -10,6 +11,8 @@ class Program
         Console.WriteLine("Console Calculator in C#\r");
         Console.WriteLine("------------------------\n");
 
+        Calculator calculator = new Calculator();
+        
         while (!endApp)
         {
             string? numInput1 = "";
@@ -30,6 +33,7 @@ class Program
             numInput2 = Console.ReadLine();
 
             double cleanNum2 = 0;
+            
             while (!double.TryParse(numInput2, out cleanNum2))
             {
                 Console.Write("This is not valid input. Please enter a numeric value: ");
@@ -53,7 +57,7 @@ class Program
             { 
                try
                {
-                  result = Calculator.DoOperation(cleanNum1, cleanNum2, op);
+                  result = calculator.DoOperation(cleanNum1, cleanNum2, op);
                   if (double.IsNaN(result))
                   {
                      Console.WriteLine("This operation will result in a mathematical error.\n");
@@ -73,6 +77,8 @@ class Program
 
             Console.WriteLine("\n"); // Friendly linespacing.
         }
+        calculator.Finish();
+        
         return;
     }
 }

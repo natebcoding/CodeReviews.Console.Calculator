@@ -52,7 +52,32 @@ namespace CalculatorLibrary
                     writer.WriteValue("Divide");
                     break;
                 // Return text for an incorrect option entry.
+                case "r":
+                    result = Math.Sqrt(num1);
+                    writer.WriteValue("Square Root");
+                    break;
+                case "p":
+                    result = Math.Pow(num1, num2);
+                    writer.WriteValue("Taking the Power");
+                    break;
+                case "p10":
+                    result = Math.Pow(10, num1);
+                    writer.WriteValue("Power 10x");
+                    break;
+                case "sin":
+                    result = Math.Sin(num1);
+                    writer.WriteValue("Trigonometry Function: Sin");
+                    break;
+                case "cos":
+                    result = Math.Cos(num1);
+                    writer.WriteValue("Trigonometry Function: Cos");
+                    break;
+                case "tan":
+                    result = Math.Tan(num1);
+                    writer.WriteValue("Trigonometry Function: Tan");
+                    break;
                 default:
+                    Console.WriteLine("Invalid input");
                     break;
             }
             writer.WritePropertyName("Result");
